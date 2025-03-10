@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SolarNova</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@700&display=swap" rel="stylesheet">
+    <style>
+      #loading-text {
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        font-family: 'Poppins', sans-serif;
+        font-size: 48px;
+        font-weight: 700;
+        text-align: center;
+        color: #22C55E;
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+        opacity: 1;
+        transition: opacity 2s ease-out;
+        z-index: 9999;
+        background: linear-gradient(45deg, #22C55E, #16A34A);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        animation: pulse 2s infinite;
+      }
+
+      @keyframes pulse {
+        0% { transform: translate(-50%, -50%) scale(1); }
+        50% { transform: translate(-50%, -50%) scale(1.05); }
+        100% { transform: translate(-50%, -50%) scale(1); }
+      }
+
+      .fade-out {
+        opacity: 0 !important;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="loading-text">SolarNova - Advanced Solar Feasibility Analysis</div>
+    <div id="root"></div>
+    <script>
+      window.addEventListener('load', () => {
+        setTimeout(() => {
+          const loadingText = document.getElementById('loading-text');
+          loadingText.classList.add('fade-out');
+          setTimeout(() => {
+            loadingText.style.display = 'none';
+          }, 2000);
+        }, 2000);
+      });
+    </script>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>
